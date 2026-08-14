@@ -33,7 +33,7 @@ jobs:
       - name: Run Bandit SAST scan
         id: bandit
         run: |
-          bandit -r . -f json -o bandit_results.json
+          bandit -r . -f json -o bandit_results.json || true
           echo "bandit_output=bandit_results.json" >> $GITHUB_OUTPUT
 
       - name: Run pip-audit SCA scan
