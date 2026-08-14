@@ -9,9 +9,6 @@ on:
 jobs:
   security-scan:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-dir: /triage
 
     steps:
       - name: Checkout repository
@@ -28,7 +25,6 @@ jobs:
           pip install bandit pip-audit gitleaks
 
       - name: Install project dependencies
-        working-dir: .
         run: |
           if [ -f requirements.txt ]; then
             pip install -r requirements.txt
